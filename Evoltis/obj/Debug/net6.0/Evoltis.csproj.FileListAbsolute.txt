@@ -61,3 +61,4 @@ C:\Encode\Evoltis\Evoltis\obj\Debug\net6.0\refint\Evoltis.dll
 C:\Encode\Evoltis\Evoltis\obj\Debug\net6.0\Evoltis.pdb
 C:\Encode\Evoltis\Evoltis\obj\Debug\net6.0\Evoltis.genruntimeconfig.cache
 C:\Encode\Evoltis\Evoltis\obj\Debug\net6.0\ref\Evoltis.dll
+C:\Encode\Evoltis\Evoltis\bin\Debug\net6.0\FluentValidation.dll

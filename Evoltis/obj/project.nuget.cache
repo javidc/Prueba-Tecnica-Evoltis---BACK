@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "O6IA9dH31/+9fB8HCIGT6OwUNO16XVk4Bax8G3pf/ai4cuZx+ORtZ6t+VrE+yblm0rUhQi8OZKx5g3pkYXbNGw==",
+  "dgSpecHash": "1bTcflpZC9no3OVE1OTC+7OM5EWf9HAcAqf9K2wph4g/Peugo1g47lRcKswhw5pd9cc4HGkeai6Qg1eJZV2rIA==",
   "success": true,
   "projectFilePath": "C:\\Encode\\Evoltis\\Evoltis\\Evoltis.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\javid\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\javid\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
+    "C:\\Users\\javid\\.nuget\\packages\\fluentvalidation\\11.9.0\\fluentvalidation.11.9.0.nupkg.sha512",
     "C:\\Users\\javid\\.nuget\\packages\\google.protobuf\\3.25.1\\google.protobuf.3.25.1.nupkg.sha512",
     "C:\\Users\\javid\\.nuget\\packages\\k4os.compression.lz4\\1.3.5\\k4os.compression.lz4.1.3.5.nupkg.sha512",
     "C:\\Users\\javid\\.nuget\\packages\\k4os.compression.lz4.streams\\1.3.5\\k4os.compression.lz4.streams.1.3.5.nupkg.sha512",

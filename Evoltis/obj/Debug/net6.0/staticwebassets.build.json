@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "mhVOCYcdLFCSRd+X6Xwp0PEj53XAR+F6+aAv3gN44jY=",
+  "Hash": "XJiiM833VU+s98PFTrlF8aNyQeLyrQUp6otXFWKG7G8=",
   "Source": "Evoltis",
   "BasePath": "_content/Evoltis",
   "Mode": "Default",
@@ -32,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\Club\\35ce87ce-5082-4308-b974-782073b40e9e.png"
+    },
+    {
+      "Identity": "C:\\Encode\\Evoltis\\Evoltis\\wwwroot\\Images\\Club\\3e85fe66-4fef-42e8-9489-1fe8d90c659d.png",
+      "SourceId": "Evoltis",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Encode\\Evoltis\\Evoltis\\wwwroot\\",
+      "BasePath": "_content/Evoltis",
+      "RelativePath": "Images/Club/3e85fe66-4fef-42e8-9489-1fe8d90c659d.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Club\\3e85fe66-4fef-42e8-9489-1fe8d90c659d.png"
     },
     {
       "Identity": "C:\\Encode\\Evoltis\\Evoltis\\wwwroot\\Images\\Club\\f7a07356-3eb3-46f4-b6ba-fc3087923d51.png",

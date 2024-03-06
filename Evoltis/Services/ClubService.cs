@@ -54,17 +54,6 @@ namespace Evoltis.Services
                     if (clubDto.ImageLogo != null)
                     {
                         string extension = Path.GetExtension(clubDto.ImageLogo.FileName).ToLower();
-                        long weight = clubDto.ImageLogo.Length;
-
-                        if (!(extension.Equals(".jpg") || extension.Equals(".png")))
-                        {
-                            return new ResponseObjectJsonDto() { Code = (int)CodeHTTP.BADREQUEST, Message = "La imagen debe estar en formato .jpg o .png" };
-                        }
-
-                        if (weight > (2 * 1024 * 1024))
-                        {
-                            return new ResponseObjectJsonDto() { Code = (int)CodeHTTP.BADREQUEST, Message = "La imagen debe pesar menos de 2MB" };
-                        }
 
                         Guid guid = Guid.NewGuid();
                         fileName = $"{guid.ToString()}{extension}";

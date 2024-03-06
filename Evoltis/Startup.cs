@@ -1,9 +1,13 @@
 ﻿using Evoltis.Entity;
 using Evoltis.Helpers;
+using Evoltis.Models;
+using Evoltis.Models.Dtos.ClubDtos;
+using Evoltis.Models.Validator;
 using Evoltis.Repositories;
 using Evoltis.Repositories.Interfaces;
 using Evoltis.Services;
 using Evoltis.Services.Interfaces;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -47,6 +51,11 @@ namespace Evoltis
             //Repositorios
             services.AddScoped<IClubRepository, ClubRepository>();
             services.AddScoped<ITournamentRepository, TournamentRepository>();
+
+            //Validator
+            services.AddTransient<IValidator<ClubCreateDto>, ClubCreateDtoValidator>();
+            services.AddTransient<IValidator<ClubPatchDto>, ClubPatchDtoValidator>();
+
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
