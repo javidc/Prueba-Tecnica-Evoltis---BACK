@@ -30,6 +30,40 @@ namespace Evoltis.Services
             this.iTournamentRepository = iTournamentRepository;
         }
 
+        public async Task<ResponseObjectJsonDto> DisableClub(int idClub)
+        {
+            try
+            {
+                Club club = await iClubRepository.GetClub(idClub);
+
+                if(club.Active == false)
+                {
+                    return new ResponseObjectJsonDto()
+                    {
+                        Code = (int)CodeHTTP.BADREQUEST,
+                        Message = "El club ya fue dado de baja"
+                    };
+                }
+
+                club.Active = false;
+                iClubRepository.UpdateClub(club);
+
+                if (!await iDbOperation.Save())
+                {
+                    return new ResponseObjectJsonDto() { Code = (int)CodeHTTP.INTERNALSERVER, Message = "Error al desactivar el club." };
+                }
+                return new ResponseObjectJsonDto()
+                {
+                    Code = (int)CodeHTTP.OK,
+                    Message = "Club desactivado con éxito"
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ResponseObjectJsonDto() { Code = (int)CodeHTTP.INTERNALSERVER, Response = ex };
+            }
+        }
+
         public async Task<ResponseObjectJsonDto> CreateClub(ClubCreateDto clubDto)
         {
 
@@ -144,6 +178,35 @@ namespace Evoltis.Services
                         }
                     };
                 }
+            }
+            catch (Exception ex)
+            {
+                return new ResponseObjectJsonDto() { Code = (int)CodeHTTP.INTERNALSERVER, Response = ex };
+            }
+        }
+
+        public async Task<ResponseObjectJsonDto> GetClubById(int idClub)
+        {
+            try
+            {
+                Club club = await iClubRepository.GetClub(idClub);
+
+                ClubUpdateDto clubUpdateDto = new ClubUpdateDto();
+
+                if (club == null)
+                {
+                    return new ResponseObjectJsonDto() { Code = (int)CodeHTTP.OK, Message = "La consulta no brindó resultados" };
+                }
+                else
+                {
+                    clubUpdateDto = iMapper.Map<ClubUpdateDto>(club);
+                }
+
+                return new ResponseObjectJsonDto()
+                {
+                    Code = (int)CodeHTTP.OK,
+                    Response = clubUpdateDto
+                };
             }
             catch (Exception ex)
             {

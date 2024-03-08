@@ -46,31 +46,18 @@ namespace Evoltis.Repositories
 
         public async Task<List<Club>> GetClubsByFilters(ClubFiltersDto filters)
         {
-            List<Club> listClubs = new List<Club>();
-
-            if(filters.IdTournament == null && filters.Name == null)
-            {
-                listClubs = await dbContext.Clubs
+            List<Club> listClubs = await dbContext.Clubs
                     .Include(c => c.Tournament)
-                    .Where(c => c.Active == true)
+                    .OrderBy(c => c.Name)
                     .ToListAsync();
-            }
-            else
+
+            if (filters.Name != null && filters.Name != "")
             {
-                if (filters.Name != null && filters.Name != "")
-                {
-                    listClubs = await dbContext.Clubs
-                        .Include(c => c.Tournament)
-                        .Where(c => c.Active == true && c.Name.ToLower().Contains(filters.Name))
-                        .ToListAsync();
-                }
-                if (filters.IdTournament != null && filters.IdTournament != 0)
-                {
-                    listClubs = await dbContext.Clubs
-                        .Include(c => c.Tournament)
-                        .Where(c => c.Active == true && c.IdTournament.Equals(filters.IdTournament))
-                        .ToListAsync();
-                }
+            listClubs = listClubs.Where(c => c.Name.ToLower().Contains(filters.Name)).ToList();
+            }
+            if (filters.IdTournament != null && filters.IdTournament != 0)
+            {
+            listClubs = listClubs.Where(c => c.IdTournament.Equals(filters.IdTournament)).ToList();
             }
 
             return listClubs;

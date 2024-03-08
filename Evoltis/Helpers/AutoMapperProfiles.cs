@@ -14,6 +14,7 @@ namespace Evoltis.Helpers
                 dest => dest.Tournament,
                 opt => opt.MapFrom(src => src.Tournament.Name)
             );
+            CreateMap<Club, ClubUpdateDto>();
             CreateMap<ClubPatchDto, Club>();
         }
     }

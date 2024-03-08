@@ -63,6 +63,21 @@ namespace Evoltis.Controllers
         }
 
         [HttpGet]
+        [Route("{idClub:int}")]
+        public async Task<ActionResult<ResponseObjectJsonDto>> GetClubById(int idClub)
+        {
+
+            ResponseObjectJsonDto response = await iClubService.GetClubById(idClub);
+
+            if (response.Code != (int)CodeHTTP.OK)
+            {
+                return StatusCode(response.Code, response.Message);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpGet]
         [Route("image/{idClub:int}")]
         public async Task<ActionResult<ResponseObjectJsonDto>> GetImageClubById(int idClub)
         {
@@ -74,6 +89,20 @@ namespace Evoltis.Controllers
             }
 
             return File(file, $"image/{Path.GetExtension(file.Name).Trim('.').ToLower()}");
+        }
+
+        [HttpPatch]
+        [Route("disable/{idClub:int}")]
+        public async Task<ActionResult> DisableClub(int idClub)
+        {
+
+            ResponseObjectJsonDto response = await iClubService.DisableClub(idClub);
+            if (response.Code != (int)CodeHTTP.OK)
+            {
+                return StatusCode(response.Code, response);
+            }
+
+            return Ok(response);
         }
 
         [HttpPatch]
