@@ -7,6 +7,7 @@ namespace Evoltis.Services.Interfaces
     {
         Task<ResponseObjectJsonDto> CreateClub(ClubCreateDto clubDto);
         Task<ResponseObjectJsonDto> GetClubsByFilters(ClubFiltersDto filters);
+        Task<FileStream> GetImageClubById(int idClub);
         Task<ResponseObjectJsonDto> UpdateClub(ClubPatchDto clubDto);
     }
 }

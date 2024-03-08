@@ -62,6 +62,20 @@ namespace Evoltis.Controllers
             return Ok(response);
         }
 
+        [HttpGet]
+        [Route("image/{idClub:int}")]
+        public async Task<ActionResult<ResponseObjectJsonDto>> GetImageClubById(int idClub)
+        {
+            FileStream file = await iClubService.GetImageClubById( idClub);
+
+            if (file == null)
+            {
+                return NotFound("No se pudo encontrar la imagen del club seleccionado");
+            }
+
+            return File(file, $"image/{Path.GetExtension(file.Name).Trim('.').ToLower()}");
+        }
+
         [HttpPatch]
         public async Task<ActionResult> UpdateClub([FromForm] ClubPatchDto clubDto)
         {

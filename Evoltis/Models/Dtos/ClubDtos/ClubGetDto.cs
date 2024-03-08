@@ -2,6 +2,7 @@
 {
     public class ClubGetDto
     {
+        public int IdClub { get; set; }
         public string Name { get; set; }
         public string CUIT { get; set; }
         public string Address { get; set; }

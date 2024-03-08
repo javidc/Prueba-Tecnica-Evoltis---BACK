@@ -127,7 +127,7 @@ namespace Evoltis.Services
                         {
                             TotalQuantity = lstClubsGetDto.Count,
                             numberOfPages,
-                            lstLeaguesGetDto = result
+                            lstClubsGetDto = result
                         }
                     };
                 }
@@ -149,6 +149,26 @@ namespace Evoltis.Services
             {
                 return new ResponseObjectJsonDto() { Code = (int)CodeHTTP.INTERNALSERVER, Response = ex };
             }
+        }
+
+        public async Task<FileStream> GetImageClubById(int idClub)
+        {
+
+            Club club = await iClubRepository.GetClub(idClub);
+
+            if (club == null)
+            {
+                return null;
+            }
+
+            FileStream file = iHelperFile.GetFile(iHelperFile.GetPathClubImage(), club.FileName);
+
+            if (file == null)
+            {
+                return null;
+            }
+
+            return file;
         }
 
         public async Task<ResponseObjectJsonDto> UpdateClub(ClubPatchDto clubDto)

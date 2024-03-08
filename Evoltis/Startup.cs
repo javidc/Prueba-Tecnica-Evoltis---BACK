@@ -28,6 +28,16 @@ namespace Evoltis
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy",
+                    builder => builder
+                        .WithOrigins(Configuration["Url:Front"])
+                        .AllowAnyMethod()
+                        .AllowAnyHeader()
+                        .AllowCredentials());
+            });
+
             services.AddControllers();
 
             services.AddDbContext<ApplicationDbContext>(options =>
@@ -71,6 +81,8 @@ namespace Evoltis
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors("CorsPolicy");
 
             app.UseRouting();
 
